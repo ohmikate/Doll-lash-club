@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doll Lash Club - Extensions de Cils sur Mesure</title>
+    <style>
+        /* === CONFIGURATION GÉNÉRALE & DESIGN === */
+        :root {
+            --or-rose: #D4A396;
+            --or-rose-hover: #C28F82;
+            --fond-creme: #FDFBF9;
+            --noir-chic: #2A2421;
+            --gris-doux: #7A726E;
+            --police-titres: 'Playfair Display', 'Didot', 'Georgia', serif;
+            --police-corps: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--police-corps);
+            background-color: var(--fond-creme);
+            color: var(--noir-chic);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* === EN-TÊTE (HEADER) === */
+        header {
+            background-color: rgba(253, 251, 249, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 163, 150, 0.2);
+            padding: 15px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 70px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul a {
+            color: var(--noir-chic);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul a:hover {
+            color: var(--or-rose);
+        }
+
+        .btn-rdv {
+            background-color: var(--noir-chic);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-rdv:hover {
+            background-color: var(--or-rose);
+        }
+
+        /* === SECTION ACCUEIL (HERO) === */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: radial-gradient(circle, rgba(253,251,249,1) 0%, rgba(244,236,232,0.6) 100%);
+            border-bottom: 1px solid rgba(212, 163, 150, 0.1);
+        }
+
+        .hero h1 {
+            font-family: var(--police-titres);
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gris-doux);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--or-rose);
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--or-rose-hover);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--noir-chic);
+            color: var(--noir-chic);
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--noir-chic);
+            color: #fff;
+        }
+
+        /* === TABLEAU DES TARIFS (PRESTATIONS) === */
+        .prestations-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--police-titres);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gris-doux);
+            font-style: italic;
+            margin-bottom: 50px;
+        }
+
+        .tarifs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tarifs-table th {
+            background-color: var(--noir-chic);
+            color: #fff;
+            text-align: left;
+            padding: 18px;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .tarifs-table td {
+            padding: 20px 18px;
+            border-bottom: 1px solid #F0ECE9;
+            background-color: var(--fond-creme);
+        }
+
+        .tarifs-table tr:hover td {
+            background-color: #F7F3F0;
+        }
+
+        .presta-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--noir-chic);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .presta-desc {
+            font-size: 0.9rem;
+            color: var(--gris-doux);
+        }
+
+        .presta-time {
+            font-size: 0.9rem;
+            color: var(--gris-doux);
+        }
+
+        .presta-price {
+            font-weight: 700;
+            color: var(--or-rose);
+            font-size: 1.1rem;
+        }
+
+        /* === PIED DE PAGE (FOOTER) === */
+        footer {
+            background-color: var(--noir-chic);
+            color: #F0ECE9;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            color: rgba(240, 236, 233, 0.6);
+        }
+
+        footer .footer-brand {
+            font-family: var(--police-titres);
+            font-size: 1.2rem;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-actions { flex-direction: column; gap: 10px; }
+            .tarifs-table th:nth-child(2), .tarifs-table td:nth-child(2) { display: none; } /* Cache le temps sur mobile si trop étroit */
+        }
+    </style>
+    <!-- Chargement d'une belle police depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- === EN-TÊTE (HEADER) === -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <!-- Le fichier image doit être placé dans le même dossier sur GitHub -->
+                <img src="logo-doll-lash-club.jpg" alt="Doll Lash Club Logo">
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#prestations">Prestations</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-action">
+                <a href="#" class="btn-rdv">Prendre RDV</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- === SECTION ACCUEIL (HERO) === -->
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Sublimez Votre Regard, Intégrez le Club.</h1>
+            <p>Découvrez l'art des extensions de cils sur-mesure au cœur du Doll Lash Club. Un univers poudré pensé pour révéler l'intensité et le glamour unique de votre regard.</p>
+            
+            <div class="hero-actions">
+                <a href="#prestations" class="btn-secondary">Découvrir Nos Poses</a>
+                <a href="#" class="btn-primary">Réserver Maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION PRESTATIONS (MENU & TARIFS) === -->
+    <section id="prestations" class="prestations-section">
+        <div class="container">
+            <h2 class="section-title">Le Menu du Club</h2>
+            <p class="section-subtitle">Des poses d'extensions précises, durables et adaptées à vos envies</p>
+
+            <table class="tarifs-table">
+                <thead>
+                    <tr>
+                        <th>Prestation & Effet</th>
+                        <th>Temps de Séance</th>
+                        <th>Tarif Unique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="presta-name">Pose Cil à Cil - Signature Absolue</span>
+                            <span class="presta-desc">Une extension fine appliquée sur chaque cil naturel. Idéal pour un effet mascara élégant et ultra-propre.</span>
+                        </td>
+                        <td class="presta-time">1h30</td>
+                        <td class="presta-price">60 €</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="presta-name">Pose Mixte / Hybride - Volume Léger</span>
+                            <span class="presta-desc">Mariage subtil entre le cil à cil et des bouquets faits main pour ajouter de la texture et du relief.</span>
+                        </td>
+                        <td class="presta-time">1h45</td>
+                        <td class="presta-price">75 €</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="presta-name">Volume Russe - Effet Poupée Iconique</span>
+                            <span class="presta-desc">Des bouquets denses et ultra-légers pour un regard noir intense, fourni et incroyablement glamour.</span>
+                        </td>
+                        <td class="presta-time">2h15</td>
+                        <td class="presta-price">90 €</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="presta-name">Lash Lift & Teinture - Courbure Naturelle</span>
+                            <span class="presta-desc">Soin complet rehaussant vos cils naturels depuis la base, complété par une teinture noire profonde.</span>
+                        </td>
+                        <td class="presta-time">1h00</td>
+                        <td class="presta-price">50 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- === PIED DE PAGE (FOOTER) === -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">Doll Lash Club</div>
+            <p>Salon Privé & Écrin de Beauté du Regard</p>
+            <p>© 2026 Doll Lash Club. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
